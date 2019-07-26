@@ -1,0 +1,1348 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+html,
+body {
+    margin: 0;
+    font-size: 100%;
+    background: #fff;
+	font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body a {
+    text-decoration: none;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+	font-family: 'Poppins', sans-serif;
+}
+
+body img {
+    max-width: 100%;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+input[type="button"],
+input[type="submit"],
+input[type="text"],
+input[type="email"],
+input[type="search"] {
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    letter-spacing: 1px;
+}
+li {
+    list-style-type: none;
+}
+p {
+    margin: 0;
+    font-size: 1em;
+    line-height: 1.9em;
+    letter-spacing: 1px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* header */
+
+/* CSS Document */
+header {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+}
+
+.toggle,
+[id^=drop] {
+	display: none;
+}
+
+/* Giving a background-color to the nav container. */
+nav { 
+	margin:0;
+	padding: 0;
+	float: right;
+}
+.clear {
+    clear: both;
+}
+div#logo {
+    float: left;
+}
+
+#logo a {
+	float: left;
+    font-size: .7em;
+    text-transform: capitalize;
+    display: initial;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #3369bf;
+    font-weight: 600;
+    padding: 3px 0;
+}
+#logo a span {
+    color: #ff6c5f;
+    background: ;
+    padding: 5px;
+}
+
+
+/* Since we'll have the "ul li" "float:left"
+ * we need to add a clear after the container. */
+
+nav:after {
+	content:"";
+	display:table;
+	clear:both;
+}
+
+/* Removing padding, margin and "list-style" from the "ul",
+ * and adding "position:reltive" */
+nav ul {
+	float: right;
+	padding:0;
+	margin:0;
+	list-style: none;
+	position: relative;
+	}
+	
+/* Positioning the navigation items inline */
+nav ul li {
+	margin: 0px;
+	display:inline-block;
+	float: left;
+	}
+
+/* Styling the links */
+nav a {
+    color: black;
+    text-transform: capitalize;
+    font-size: 15px;
+    letter-spacing: 1px;
+    padding-left: 0;
+    padding-right: 0;
+	padding: 10px 0;
+}
+
+
+nav ul li ul li:hover { background: #f8f9fa; }
+
+/* Background color change on Hover */
+nav a:hover { 
+	color: #ff6c5f;	
+}
+.menu li.active  a{ 
+	color: #ff6c5f;	
+}
+
+/* Hide Dropdowns by Default
+ * and giving it a position of absolute */
+nav ul ul {
+	display: none;
+	position: absolute; 
+	/* has to be the same number as the "line-height" of "nav a" */
+	top: 30px; 
+    background: #fff;
+    padding: 10px;
+}
+	
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+	display:inherit;
+}
+	
+/* Fisrt Tier Dropdown */
+nav ul ul li {
+	width:170px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+nav ul ul li a {
+    color: #333;
+    padding: 5px 10px;
+    display: block;
+}
+
+/* Second, Third and more Tiers	
+ * We move the 2nd and 3rd etc tier dropdowns to the left
+ * by the amount of the width of the first tier.
+*/
+nav ul ul ul li {
+	position: relative;
+	top:-60px;
+	/* has to be the same number as the "width" of "nav ul ul li" */ 
+	left:170px; 
+}
+
+	
+/* Change ' +' in order to change the Dropdown symbol */
+li > a:only-child:after { content: ''; }
+
+
+/* Media Queries
+--------------------------------------------- */
+
+@media all and (max-width : 800px) {
+	nav { 
+		float: none;
+	}
+
+	div#logo {
+		float: none;
+	}
+	#logo {
+		display: block;
+		padding: 0;
+		width: 100%;
+		text-align: center;
+		float: none;
+	}
+
+	nav {
+		margin: 0;
+	}
+	nav a {
+		color: #333;
+	}
+
+	/* Hide the navigation menu by default */
+	/* Also hide the  */
+	.toggle + a,
+	.menu {
+		display: none;
+	}
+
+	/* Stylinf the toggle lable */
+	.toggle {
+		display: block;
+		padding: 7px 15px;
+		font-size: 17px;
+		text-decoration: none;
+		border: none;
+		float: right;
+		margin-right: 4em;
+		background-color: #fff;
+		color: #009688;
+	}
+	.menu .toggle {
+		float: none;
+		text-align: center;
+		margin: auto;
+		width: 30%;
+		padding: 5px;
+		font-weight: normal;
+		font-size: 15px;
+		letter-spacing: 1px;
+	}
+
+	.toggle:hover {
+		color:#333;
+		background-color: #fff;
+	}
+
+	/* Display Dropdown when clicked on Parent Lable */
+	[id^=drop]:checked + ul {
+		display: block;
+		background: #fff;
+		padding: 15px 0;
+		text-align: center;
+	}
+
+	/* Change menu item's width to 100% */
+	nav ul li {
+		display: block;
+		width: 100%;
+		padding: 5px 0;
+		}
+
+	nav ul ul .toggle,
+	nav ul ul a {
+		padding: 0 40px;
+	}
+
+	nav ul ul ul a {
+		padding: 0 80px;
+	}
+
+	nav a:hover,
+ 	nav ul ul ul a {
+		background-color: transparent;
+	}
+  
+	nav ul li ul li .toggle,
+	nav ul ul a,
+  nav ul ul ul a{
+		padding:14px 20px;	
+		color:#FFF;
+		font-size:17px; 
+	}
+  
+  
+	nav ul li ul li .toggle,
+	nav ul ul a {
+		background-color: #fff; 
+	}
+	nav ul ul li a {
+		font-size: 15px;
+	}
+	ul.inner-ul{
+		padding: 0!important;
+	}
+	/* Hide Dropdowns by Default */
+	nav ul ul {
+		float: none;
+		position:static;
+		color: #ffffff;
+		/* has to be the same number as the "line-height" of "nav a" */
+	}
+		
+	/* Hide menus on hover */
+	nav ul ul li:hover > ul,
+	nav ul li:hover > ul {
+		display: none;
+	}
+		
+	/* Fisrt Tier Dropdown */
+	nav ul ul li {
+		display: block;
+		width: 100%;
+		padding: 0;
+	}
+
+	nav ul ul ul li {
+		position: static;
+		/* has to be the same number as the "width" of "nav ul ul li" */ 
+
+	}
+
+}
+
+@media all and (max-width : 330px) {
+
+	nav ul li {
+		display:block;
+		width: 94%;
+	}
+
+}
+.user span.fa {
+    font-size: 25px;
+    color: #ff6b5a;
+}
+/*-- //header --*/
+
+
+/*--/banner-info--*/
+
+.banner {
+    background: #f9f9f9; /* #009688 */
+    position: relative;
+    z-index: 1;
+}
+
+
+.agileinfo-logo h2 {
+    color: #fff;
+    display: inline-block;
+    font-size: 3.2em;
+    text-transform: capitalize;
+	line-height: 65px;
+	letter-spacing: 1px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.37);
+}
+.agileinfo-logo p {
+    font-size: 16px;
+    color: #ddd;
+    margin: 2em 0;
+}
+.slider-info a.btn {
+    background: none;
+    padding: 10px 25px;
+    color: #fff;
+    border: 2px solid #fff;
+    font-size: 15px;
+    letter-spacing: 1px;
+    border-radius: 4px;
+	-webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+	    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.slider-info a.btn:hover {
+    opacity:0.8;
+	    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.banner-text {
+    padding: 13vw 0 6vw;
+}
+.banner-image h4 {
+    font-size: 20px;
+}
+
+/*-- //banner --*/
+
+/*-- popup --*/
+.popup-effect {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 0ms;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 99;
+}
+
+.popup-effect:target {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup {
+    background: #fff;
+    border-radius: 4px;
+    max-width: 500px;
+    position: relative;
+    margin: 8em auto;
+    padding: 3em 2em;
+    z-index: 999;
+}
+.popup p {
+    font-size: 15px;
+    color: #777;
+}
+
+.popup .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+}
+
+.popup .close:hover {
+    color: #ff6c5f;
+}
+.popup iframe {
+    width: 100%;
+    height: 250px;
+    border: none;
+}
+.login .btn {
+    border: 2px solid #009688;
+    background: none;
+    color: #009688;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 15px;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -o-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    padding: 8px 25px;
+}
+.login .btn:hover {
+        opacity: 0.8;
+}
+.login p a {
+    font-size: 14px;
+    color: #002d28;
+}
+.login label {
+    font-size: 14px;
+    color: #666;
+}
+
+/*-- //popup --*/
+
+/*-- about --*/
+.about-text h3{
+    font-size: 27px;
+    font-weight: 600;
+    color: #333;
+    line-height: 38px;
+}
+	
+.about-text p {
+    font-size: 15px;
+    color: #777;
+}
+.about-img img{
+}
+.about-left h4 {
+    font-size: 40px;
+    font-weight: 600;
+    color: #ff6c5f;
+}
+.about-left h4 span {
+    font-size: 16px;
+    color: #666;
+    font-weight: normal;
+}
+/*-- about --*/
+
+/*-- why choose us --*/
+h3.heading {
+    font-size: 45px;
+    color: #333;
+    text-transform: capitalize;
+    letter-spacing: 0;
+}
+.f1 h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 1px;
+}
+.f1 p {
+    font-size: 15px;
+    color: #777;
+}
+.f1 span.fa{
+    text-align: center;
+    font-size: 30px;
+}
+.icon1 span.fa{
+	color: #ff4f81;
+}
+.icon2 span.fa{
+	color: #00aeff;
+}
+.icon3 span.fa{
+	color: #2dde98;
+}
+
+.icon4 span.fa{
+	color: #fe5000;
+}
+.f1{
+    box-shadow: 7px 7px 10px 0 rgba(76, 110, 245, .1);
+	text-align:center;
+}
+/*-- why choose us --*/
+
+/*-- partners --*/
+ul.partners-icon li i {
+    font-size: 3em;
+    color: #eee;
+}
+.partners{
+	background: #ff6c5f;
+}
+/*-- //partners --*/
+
+/*-- offered services --*/
+
+h4.w3layouts_pvt-head {
+	text-transform: capitalize;
+	font-weight: bold;
+	font-size: 2em;
+	color: #0068b7;
+}
+
+span.title-icon-wthree {
+	color: #ffc107;
+	font-size: 1em;
+}
+
+.title-sec-w3layouts_pvt p {
+	color: #333;
+}
+
+.title-sec-w3layouts_pvt {
+	border-left: 5px #bdbdbd solid;
+	padding-left: 1em;
+}
+
+h4.feed-title {
+    font-size: 20px;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+a.btn-w3layouts_pvt span {
+	margin-left: 5px;
+	color: #ffc107;
+	font-size: 1em;
+}
+
+a.btn-w3layouts_pvt:hover {
+	color: #0068b7;
+	letter-spacing: 0.5px;
+}
+
+.ab-pvtw3 p {
+	width: 478px;
+}
+
+a.btn-w3layouts_pvt {
+	display: inline-block;
+	margin-top: 1em;
+	color: #000;
+	font-weight: 600;
+}
+
+.process p {
+    font-size: 15px;
+    color: #777;
+}
+/* //offered services */
+
+/*-- services page --*/
+.serv-grids h3 {
+    font-size: 20px;
+    color: #333;
+    letter-spacing: 1px;
+    line-height: 30px;
+    text-transform: capitalize;
+}
+.serv-grids span.fa{
+    text-align: center;
+    font-size: 30px;
+    background: #ffff;
+    height: 65px;
+    width: 65px;
+    line-height: 65px;
+	box-shadow: 7px 7px 10px 0 rgba(76, 110, 245, .1);
+}
+
+/*-- //services page --*/
+
+/*-- Testimonials --*/
+.testi {
+    background: url(../images/bg.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.testimonials blockquote {
+    background: #fff none repeat scroll 0 0;
+    border: medium none;
+    color: #666;
+    display: block;
+    font-size: 14px;
+    padding: 30px 30px;
+    position: relative;
+}
+blockquote span.fa {
+    color: #009688;
+}
+.testimonials .carousel-info img {
+    border-radius: 150px !important;
+    height: 80px;
+    width: 80px;
+}
+.testimonials .carousel-info {
+    overflow: hidden;
+}
+.testimonials .carousel-info img {
+    margin-right: 15px;
+}
+.testimonials .carousel-info span {
+    display: block;
+}
+.testimonials span.testimonials-name {
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 500;
+    margin: 15px 0 0px;
+}
+.testimonials span.testimonials-post {
+    color: #eee;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+/*-- //testimonials --*/
+
+/*-- pricing --*/
+.pricing-grid1 {
+    border: 1px solid #eee;
+    text-align: center;
+	padding: 0 2em;
+    background: #fafafa;
+	position: relative;
+    transition: 0.5s ease;
+	-webkit-transition: 0.5s ease;
+	-moz-transition: 0.5s ease;
+	-ms-transition: 0.5s ease;
+	-o-transition: 0.5s ease;
+}
+
+.pricing-grid1:hover,.pricing-grid1-active {
+    background: #009688;
+    transition: 0.5s ease;
+	-webkit-transition: 0.5s ease;
+	-moz-transition: 0.5s ease;
+	-ms-transition: 0.5s ease;
+	-o-transition: 0.5s ease;
+}
+.pricing-grid1 p {
+    font-size: 15px;
+    color: #888;
+    padding: 5px 0;
+    letter-spacing: 1px;
+}
+.pricing-grid1  h4 {
+    color: #333;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 700;
+	margin: auto;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.pricing-grid1 h3 {
+    margin: 0;
+    background: #ff6c5f;
+    font-weight: normal;
+    color: #eee;
+    font-weight: 500;
+    padding: 8px 0px;
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+.pricing-grid1 a {
+    color: #fff;
+    font-size: 14px;
+    display: inline-block;
+    background: #ff6c5f;
+    border: 2px solid #ff6c5f;
+    padding: 8px 25px;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}
+.pricing-grid1 a:hover {
+    opacity: 1;
+}
+.pricing-grid1:hover.pricing-grid1 h3,.pricing-grid1-active h3{
+    background: #fff;
+}
+.pricing-grid1:hover.pricing-grid1 p,.pricing-grid1-active p,.pricing-grid1:hover.pricing-grid1 h4{
+    color: #eee;
+}
+.pricing-grid1:hover.pricing-grid1 h3,.pricing-grid1-active h3{
+	color: #353c4e;
+}
+/*-- //pricing --*/
+
+
+/*-- offered services bottom --*/
+h3.tittle-w3 {
+    font-size: 2.8em;
+	color: #333;
+    line-height: 60px;
+}
+.video-right p{
+	font-size: 15px;
+	color: #666;
+}
+/*-- //offered services bottom --*/
+
+
+/*-- footer --*/
+footer {
+    background: #212020;
+}
+
+.footer-title {
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.contact-info p a,
+.contact-info p,
+ul.links li a {
+    color: #777;
+    font-size: 14px;
+}
+.contact-info .footer-style-w3ls p.date{
+    font-size: 13px;
+	font-style: italic;
+}
+.contact-info p span {
+    display: block;
+}
+
+.footer-style-w3lsp a {
+    color: #999;
+}
+
+.contact-info h4 {
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #aaa;
+}
+.contact-info h4 i {
+    color: #999;
+}
+/* quick links */
+ul.links li a {
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+ul.links li a:hover,
+.footer-style-w3lsp a:hover {
+    color: #fff;
+}
+
+/* //quick links */
+
+/* copyright */
+.copy-right {
+    letter-spacing: 1px;
+    font-size: 15px;
+    color: #999;
+}
+
+.copy-right a {
+    color: #eee;
+}
+
+.copy-right a:hover {
+    color: #fff;
+}
+
+.copy-right-top {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* copyright */
+/* //footer */
+
+/*- inner banner --*/
+
+.inner-banner {
+    height: 250px;
+}
+
+/*- inner banner --*/
+
+/*-- Contact page --*/
+.contact_right input[type="text"], .contact_right input[type="email"], .contact_right textarea {
+    outline: none;
+    padding: 12px 0;
+    background: none;
+    color: #212121;
+    font-size: 15px;
+    width: 100%;
+    letter-spacing: 1px;
+    border: none;
+    border-bottom: 1px solid #494949;
+}
+.contact_right input[type="email"] {
+    margin: 1em 0;
+}
+.contact_right textarea {
+    min-height: 145px;
+    resize: none;
+    margin-top: 1em;
+}
+.contact_right button {
+        outline: none;
+    padding: 15px 0;
+    background: #009688;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-top: 10px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    -o-transition: 0.5s all;
+}
+.contact_right button:hover {
+    opacity: 1;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    -o-transition: 0.5s all;
+}
+.contact_left iframe {
+    width: 100%;
+    outline: none;
+    border: none;
+    height: 100%;
+}
+.information h4 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #333;
+    position: relative;
+}
+.information p {
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #666;
+    line-height: 28px;
+}
+.information p a,.information p span{
+    color: #ff6c5f;
+}
+.information p a:hover{
+    color: #333;
+}
+.information span.fa {
+    font-size: 30px;
+    color: #ff6c5f;
+}
+
+.contact_right,.contact_left{
+    border: 2px dotted #999;
+}
+/*-- //Contact page --*/
+
+
+/*-- team --*/
+/* common styles for visual styles */
+
+.teamy_name {
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 1px;
+}
+.teamy_post {
+    margin-top: .5em;
+    font-size: 14px;
+    text-transform: capitalize;
+    color: #6f6f6f;
+    letter-spacing: 0.5px;
+}
+/* style 1 */
+
+.teamy_content,.teamy_back {
+ text-align: center;
+}
+.teamy_back-inner span.fa {
+    color: #999;
+    font-size: 14px;
+    margin: 10px 5px;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    -o-transition: 0.5s all;
+}
+.teamy_back-inner span.fa.fa-facebook {
+    color: #3b5998;
+}
+.teamy_back-inner span.fa.fa-facebook:hover {
+	opacity:0.8;
+}
+.teamy_back-inner span.fa.fa-twitter {
+    color: #1da1f2;
+}
+.teamy_back-inner span.fa.fa-twitter:hover{
+	opacity:0.8;
+}
+.teamy_back-inner span.fa.fa-envelope-open {
+    color: #dd4b39;
+}
+.teamy_back-inner span.fa.fa-envelope-open:hover {
+	opacity:0.8;
+}
+/*-- //team --*/
+
+/*-- properties --*/
+.detail h4.title a {
+    font-size: 20px;
+    color: #333;
+    letter-spacing: 0;
+}
+.detail ul li {
+    list-style: none;
+    width: 44%;
+    float: left;
+    font-weight: 400;
+    font-size: 15px;
+    color: #848488;
+    margin: 7px;
+}
+.detail ul li span {
+    color: #ff6c5f;
+    margin-right: 5px;
+}
+.detail p {
+    font-size: 15px;
+    color: #777;
+}
+.detail {
+    background: #f9f8fa;
+    padding: 1em;
+}
+/*-- //properties --*/
+
+/*-- TO TOP --*/
+a.move-top span {
+    color: #bbb;
+    width: 35px;
+    position: absolute;
+    z-index: 9;
+    background: #212020;
+    left: 49%;
+    margin-top: 5px;
+    border-radius: 50%;
+    height: 35px;
+    border: 1px solid rgba(74, 77, 86, 0.8);
+    line-height: 1.9em;
+}
+/*-- // TO TOP --*/
+
+/*-- Responsive design --*/
+
+@media(max-width:1440px) {
+}
+
+@media(max-width:1366px) {
+	.agileinfo-logo h2 {
+		font-size: 3em;
+		line-height: 60px;
+	}
+	h3.tittle-w3 {
+		font-size: 2.6em;
+		line-height: 50px;
+	}
+}
+
+@media(max-width:1280px) {
+    
+}
+@media(max-width:1080px) {
+	.agileinfo-logo h2 {
+		font-size: 2.8em;
+		line-height: 55px;
+	}
+	.agileinfo-logo p {
+		font-size: 15px;
+		margin: 1em 0;
+	}
+	.about-left h4 {
+		font-size: 30px;
+	}
+	.about-text p {
+		font-size: 14.5px;
+	}
+	h3.tittle-w3 {
+		font-size: 2.2em;
+		line-height: 45px;
+	}
+	.contact-info h4 {
+		font-size: 14.5px;
+		letter-spacing: 0px;
+	}
+	.serv-grids h3 {
+		font-size: 18px;
+		letter-spacing: 0px;
+	}
+	.pricing-grid1 {
+		padding: 0 1em;
+	}
+	.information span.fa {
+		font-size: 23px;
+	}
+}
+
+@media(max-width:1024px) {
+	.banner-text {
+		padding: 13vw 0 8vw;
+	}
+    h3.heading {
+		font-size: 40px;
+	}
+	.contact-info p a, .contact-info p, ul.links li a {
+		font-size: 13.5px;
+	}
+	ul.partners-icon li i {
+		font-size: 2.5em;
+	}
+	.inner-banner {
+		height: 200px;
+	}
+}
+
+@media(max-width:991px) {
+	.login-icon {
+		position: absolute;
+		right: 10%;
+	}
+	.information p {
+		font-size: 15px;
+	}
+}
+
+@media(max-width:768px) {
+	nav { 
+		float: none;
+	}
+
+	div#logo {
+		float: none;
+	}
+    .toggle {
+		margin-right: 5em;
+	}
+	.agileinfo-logo h2 {
+		font-size: 2.5em;
+		line-height: 50px;
+	}
+	.video-right p {
+		font-size: 14px;
+	}
+	.inner-banner {
+		height: 170px;
+	}
+	.information h4 {
+		font-size: 20px;
+		letter-spacing: 1px;
+	}
+	.contact_right h3 {
+		font-size: 26px;
+	}
+}
+
+@media(max-width:736px) {
+    .toggle {
+		margin-right: 1em;
+	}
+	.about-text h3 {
+		font-size: 24px;
+	}
+	h3.heading {
+		font-size: 35px;
+	}
+	.contact_left iframe {
+		height: 250px;
+	}
+	.banner-text {
+		padding: 15vw 0 8vw;
+	}
+}
+
+@media(max-width:667px) {
+	h3.tittle-w3 {
+		font-size: 2em;
+		line-height: 40px;
+	}
+	.toggle {
+		margin-right: 2em;
+	}
+	.contact_right h3 {
+		font-size: 25px;
+	}
+	.banner-text {
+		padding: 18vw 0 8vw;
+	}
+}
+
+@media(max-width:600px) {
+	.toggle {
+		margin-right: 3.2em;
+	}
+	.agileinfo-logo h2 {
+		font-size: 2em;
+		line-height: 45px;
+	}
+	#logo a {
+		font-size: .6em;
+	}
+}
+
+@media(max-width:568px) {
+	.login-icon {
+		right: 6%;
+	}
+	.pricing-grids {
+		width: 70%;
+		margin: auto;
+	}
+	.banner-text {
+		padding: 22vw 0 8vw;
+	}
+}
+
+@media(max-width:480px) {
+	ul.partners-icon li i {
+		font-size: 2em;
+	}
+	.popup {
+		margin: 8em 2em;
+	}
+	.popup iframe {
+		height: 190px;
+	}
+	.inner-banner {
+		height: 150px;
+	}
+	.banner-text {
+		padding: 28vw 0 8vw;
+	}
+}
+@media(max-width:414px) {
+	.agileinfo-logo h2 {
+		font-size: 1.8em;
+		line-height: 40px;
+	}
+	.agileinfo-logo p {
+		font-size: 14px;
+	}
+	.slider-info a.btn {
+		font-size: 14px;
+	}
+	.popup {
+		margin: 8em 1em;
+		padding: 3em 1em;
+	}
+	.login .btn {
+		font-size: 14px;
+		padding: 6px 20px;
+	}
+	.popup p {
+		font-size: 14px;
+	}
+	.pricing-grids {
+		width: 90%;
+	}
+	.contact_right h3 {
+		font-size: 22px;
+	}
+	.contact_right button {
+		font-size: 14px;
+		padding: 13px 0;
+		letter-spacing: 1px;
+	}
+}
+
+@media(max-width:384px) {
+    #logo a {
+		font-size: .5em;
+	}
+	.toggle {
+		font-size: 15px;
+	}
+	.menu .toggle {
+		width: 40%;
+		font-size: 15px;
+	}
+	.agileinfo-logo h2 {
+		font-size: 1.6em;
+		line-height: 32px;
+	}	
+	.slider-info a.btn {
+		padding: 10px 20px;
+		font-size: 13px;
+	}
+	.about-text h3 {
+		font-size: 20px;
+		line-height: 30px;
+	}
+	h3.heading {
+		font-size: 30px;
+	}
+	h3.tittle-w3 {
+		font-size: 1.6em;
+		line-height: 35px;
+	}
+	.footer-title {
+		font-size: 18px;
+	}
+	.copy-right {
+		font-size: 14px;
+	}
+	.login p a {
+		font-size: 13px;
+	}
+	.popup iframe {
+		height: 150px;
+	}
+	.inner-banner {
+		height: 120px;
+	}
+	.testimonials span.testimonials-name {
+		font-size: 18px;
+	}
+	.contact_right h3 {
+		font-size: 20px;
+	}
+}
+
+@media(max-width:320px) {
+    .slider-info a.btn {
+		padding: 10px 15px;
+		font-size: 12px;
+	}
+	.toggle {
+		font-size: 14px;
+		padding: 7px 10px;
+		margin-right: 2.5em;
+	}
+	.pricing-grids {
+		width: 100%;
+	}
+	.detail h4.title a {
+		font-size: 19px;
+	}
+}
+
+
+/*-- //Responsive design --*/
